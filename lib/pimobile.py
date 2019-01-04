@@ -1,5 +1,6 @@
-from pwm import PWM
-from adc import ADC
+# from pwm import PWM
+# from adc import ADC
+from raspberrypi import PWM， ADC
 import time
 
 PERIOD = 4095
