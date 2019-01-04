@@ -1,0 +1,34 @@
+<xml>
+  <category name="%{BKY_CATPIMOBILE}" colour='#CF5889'>
+
+    <block type="raspberrypi_pin_set_value">
+      <value name="pin">
+
+    <block type="pimobile_line_follower">
+      <value name="line">
+        <shadow type="pimobile_line">
+        </shadow>
+      </value>
+    </block>
+
+    <block type="pimobile_ultarsonic_distance"></block>
+
+    <block type="pimobile_motor">
+      <value name="motor">
+        <shadow type="pimobile_motor_select">
+        </shadow>
+      </value>
+      <value name="value">
+        <shadow type="math_number">
+          <field name="NUM">0</field>
+        </shadow>
+      </value>
+    </block>
+
+
+
+  </category>
+
+  
+  <sep></sep>
+</xml>
