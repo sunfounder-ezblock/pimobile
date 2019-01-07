@@ -9,9 +9,15 @@ goog.require('Blockly.Python');
 Blockly.Python['pimobile_line'] = function(block) {
     var chn = block.getFieldValue('line_follower');
     // Blockly.Python.definitions_['import_raspberrypi_pin'] = 'from raspberrypi import Pin';
-    var code = chn;
+
+    // if (chn = 1) {
+    //     chn = "'A0'"
+    // }
+
+    var code = '';
+    code += chn;
     // code = 'get_line_value(' + chn + ')\n';
-    return code;
+    return [code, Blockly.Python.ORDER_ATOMIC];
 };
 
 // Blockly.Python['pimobile_line_follower'] = function(block) {
@@ -24,10 +30,18 @@ Blockly.Python['pimobile_line'] = function(block) {
 //     return code;
 // };
 
+Blockly.Python['raspberrypi_digital_pin'] = function(block) { //digital pin number
+    var pin = block.getFieldValue('pin');
+
+    Blockly.Python.definitions_['import_raspberrypi_pin'] = 'from raspberrypi import Pin';
+
+    var code = '';
+    code += pin;
+    return [code, Blockly.Python.ORDER_ATOMIC];
+};
 
 Blockly.Python['pimobile_line_follower'] = function(block) {
     var chn = Blockly.Python.valueToCode(block, 'line', Blockly.Python.ORDER_ATOMIC);
-
     Blockly.Python.definitions_['import_pimobile'] = 'import pimobile';
 
     var code = ' ';
@@ -36,11 +50,13 @@ Blockly.Python['pimobile_line_follower'] = function(block) {
 };
 
 Blockly.Python['pimobile_ultarsonic_distance'] = function(block) {
+    var Triq = Blockly.Python.valueToCode(block, 'Triq', Blockly.Python.ORDER_ATOMIC);
+    var Echo = Blockly.Python.valueToCode(block, 'Echo', Blockly.Python.ORDER_ATOMIC);
 
     Blockly.Python.definitions_['import_pimobile'] = 'import pimobile';
 
     var code = ' ';
-    code = 'get_distance()';
+    code = 'get_distance(' + Triq + ', ' + Echo + ')';
     return [code, Blockly.Python.ORDER_ATOMIC];
 };
 

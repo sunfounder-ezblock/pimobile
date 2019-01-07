@@ -17,6 +17,8 @@ Blockly.Msg.PIMOBILE_LINE_FOLLOWER_TITLE2 = "value"
 Blockly.Msg.PIMOBILE_LINE_FOLLOWER_TOOLTIP = "return the value of the line follower";
 
 Blockly.Msg.PIMOBILE_ULTARSONIC_DISTANCE_TITLE1 = "Get ultarsonic value";
+Blockly.Msg.PIMOBILE_ULTARSONIC_DISTANCE_TITLE2 = "Triq";
+Blockly.Msg.PIMOBILE_ULTARSONIC_DISTANCE_TITLE3 = "Echo";
 Blockly.Msg.PIMOBILE_ULTARSONIC_TOOLTIP = "Get ultarsonic value";
 
 Blockly.Msg.PIMOBILE_MOTOR_TITLE1 = "Set motor";

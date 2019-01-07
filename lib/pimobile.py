@@ -1,6 +1,6 @@
 # from pwm import PWM
 # from adc import ADC
-from raspberrypi import PWM， ADC
+from raspberrypi import PWM， ADC, Pin
 import time
 
 PERIOD = 4095
@@ -92,6 +92,8 @@ def test_line_3():
 def test_motor():
     set_motor_speed(1, -4095)
     set_motor_speed(2, 4095)
+
+    
 
 if __name__ == "__main__":
     test_motor()

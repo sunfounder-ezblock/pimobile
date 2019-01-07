@@ -10,8 +10,8 @@ Blockly.Blocks.pimobile.RGB = Blockly.Constants.PiMobile.RGB;
 
 
 Blockly.Constants.PiMobile.Line_follower_channel = [
-    ["U1", '1'],
-    ["U2", '2'],
+    ["U1", "'A0'"],
+    ["U2", "'A1'"],
 ];
 
 Blockly.Constants.PiMobile.motor_select = [
@@ -53,7 +53,7 @@ Blockly.Blocks['pimobile_line_follower'] = {
         this.appendDummyInput()
             .appendField(Blockly.Msg.PIMOBILE_LINE_FOLLOWER_TITLE2);
         this.setInputsInline(true);
-        this.setOutput(true, "Jelly_Output_Port");
+        this.setOutput(true, "Number");
         this.setColour(Blockly.Constants.PiMobile.RGB);
         this.setTooltip(Blockly.Msg.PIMOBILE_LINE_FOLLOWER_TOOLTIP);
         this.setHelpUrl('');
@@ -63,9 +63,18 @@ Blockly.Blocks['pimobile_line_follower'] = {
 Blockly.Blocks['pimobile_ultarsonic_distance'] = {
     init: function() {
         this.appendDummyInput()
+            .setAlign(Blockly.ALIGN_RIGHT)
             .appendField(Blockly.Msg.PIMOBILE_ULTARSONIC_DISTANCE_TITLE1);
-        this.setInputsInline(true);
-        this.setOutput(true, "Jelly_Output_Port");
+        this.appendValueInput("Triq")
+            .setAlign(Blockly.ALIGN_RIGHT)
+            .setCheck(null)
+            .appendField(Blockly.Msg.PIMOBILE_ULTARSONIC_DISTANCE_TITLE2);
+        this.appendValueInput("Echo")
+            .setAlign(Blockly.ALIGN_RIGHT)
+            .setCheck(null)
+            .appendField(Blockly.Msg.PIMOBILE_ULTARSONIC_DISTANCE_TITLE3);
+        this.setInputsInline(false);
+        this.setOutput(true, "Number");
         this.setColour(Blockly.Constants.PiMobile.RGB);
         this.setTooltip(Blockly.Msg.PIMOBILE_ULTARSONIC_TOOLTIP);
         this.setHelpUrl('');
