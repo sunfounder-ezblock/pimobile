@@ -4,8 +4,10 @@
 var PiMobile = {};
 PiMobile.id = 'pimobile';
 PiMobile.kits = {}
+PiMobile.series = "raspberrypi";
+PiMobile.nameEn = "PiMobile";
 PiMobile.type = "raspberrypi";
-PiMobile.img = CORE_DIR + '/device/' + PiMobile.id + '/img/' + PiMobile.id + '_board' + '.png';
+PiMobile.img = CORE_DIR + '/product/' + PiMobile.id + '/img/' + PiMobile.id + '_board' + '.png';
 PiMobile.width = 96;
 PiMobile.height = 72;
 PiMobile.active = 'active';
@@ -22,98 +24,6 @@ PiMobile.routingOffset = {
     x: 2.3,
     y: 2.2,
 }
-
-PiMobile.pins = [{
-        'id': 1,
-        'name': 'OUT0',
-        'x': 53,
-        'y': 20,
-        'isSource': false,
-        'property': ["pwm"],
-        'type': 'pwm',
-    },
-    {
-        'id': 2,
-        'name': 'OUT1',
-        'x': 47,
-        'y': 20,
-        'isSource': false,
-        'property': ["pwm"],
-        'type': 'pwm',
-    },
-    {
-        'id': 3,
-        'name': 'OUT2',
-        'x': 40.7,
-        'y': 20,
-        'isSource': false,
-        'property': ["pwm"],
-        'type': 'pwm',
-    },
-    {
-        'id': 4,
-        'name': 'OUT3',
-        'x': 34.7,
-        'y': 20,
-        'isSource': false,
-        'property': ["pwm"],
-        'type': 'pwm',
-    },
-    {
-        'id': 5,
-        'name': 'I2C0',
-        'x': 34.7,
-        'y': 30.8,
-        'isSource': false,
-        'property': ["i2c"],
-        'type': 'com',
-    },
-    {
-        'id': 6,
-        'name': 'I2C1',
-        'x': 34.7,
-        'y': 41.2,
-        'isSource': false,
-        'property': ["i2c"],
-        'type': 'com',
-    },
-    {
-        'id': 7,
-        'name': 'IN3',
-        'x': 34.7,
-        'y': 52.3,
-        'isSource': false,
-        'property': ["ain"],
-        'type': 'analog',
-    },
-    {
-        'id': 8,
-        'name': 'IN2',
-        'x': 40.7,
-        'y': 52.3,
-        'isSource': false,
-        'property': ["ain"],
-        'type': 'analog',
-    },
-    {
-        'id': 9,
-        'name': 'IN1',
-        'x': 47,
-        'y': 52.3,
-        'isSource': false,
-        'property': ["ain"],
-        'type': 'analog',
-    },
-    {
-        'id': 10,
-        'name': 'IN0',
-        'x': 53,
-        'y': 52.3,
-        'isSource': false,
-        'property': ["ain"],
-        'type': 'analog',
-    },
-]
 
 PiMobile.init = function() {
     PiMobile.name = MSG.catPiMobile;
@@ -146,16 +56,3 @@ PiMobile.init = function() {
     ];
 
 }
-
-// PiMobile.ab2str = function (buf) {
-// 	return String.fromCharGUI.apply(null, new Uint8Array(buf));
-// }
-
-// PiMobile.str2ab = function (str) {
-// 	var buf = new ArrayBuffer(str.length); // 2 bytes for each char
-// 	var bufView = new Uint8Array(buf);
-// 	for (var i = 0, strLen = str.length; i < strLen; i++) {
-// 		bufView[i] = str.charGUIAt(i);
-// 	}
-// 	return bufView;
-// }
