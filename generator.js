@@ -33,7 +33,7 @@ Blockly.Python['pimobile_line'] = function(block) {
 Blockly.Python['raspberrypi_digital_pin'] = function(block) { //digital pin number
     var pin = block.getFieldValue('pin');
 
-    Blockly.Python.definitions_['import_raspberrypi_pin'] = 'from raspberrypi import Pin';
+    // Blockly.Python.definitions_['import_raspberrypi_pin'] = 'from raspberrypi import Pin';
 
     var code = '';
     code += pin;
@@ -45,7 +45,7 @@ Blockly.Python['pimobile_line_follower'] = function(block) {
     Blockly.Python.definitions_['import_pimobile'] = 'import pimobile';
 
     var code = ' ';
-    code = 'get_line_value(' + chn + ')';
+    code = 'pimobile.get_line_value(' + chn + ')';
     return [code, Blockly.Python.ORDER_ATOMIC];
 };
 
@@ -56,7 +56,7 @@ Blockly.Python['pimobile_ultarsonic_distance'] = function(block) {
     Blockly.Python.definitions_['import_pimobile'] = 'import pimobile';
 
     var code = ' ';
-    code = 'get_distance(' + Triq + ', ' + Echo + ')';
+    code = 'pimobile.get_distance(' + Triq + ', ' + Echo + ')';
     return [code, Blockly.Python.ORDER_ATOMIC];
 };
 
@@ -70,6 +70,6 @@ Blockly.Python['pimobile_motor'] = function(block) {
     Blockly.Python.definitions_['import_pimobile'] = 'import pimobile';
 
     var code = ' ';
-    code = 'set_motor_speed(' + motor + ', ' + value + ')\n';
+    code = 'pimobile.set_motor_speed(' + motor + ', ' + value + ')\n';
     return code;
 };
