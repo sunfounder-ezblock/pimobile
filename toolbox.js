@@ -49,7 +49,17 @@ PiMobile.toolboxText =
     '        </shadow> ' +
     '    </value> ' +
     '    </block> ' +
-    '    <block type="pimobile_ultarsonic_distance"></block> ' +
+    '    <block type="pimobile_ultarsonic_distance"> ' +
+    '        <value name="Triq"> ' +
+    '        <shadow type="raspberrypi_digital_pin"> ' +
+    '        </shadow> ' +
+    '        </value> ' +
+    '        <value name="Echo"> ' +
+    '        <shadow type="raspberrypi_digital_pin"> ' +
+    '            <field name="NUM">"P1"</field> ' +
+    '        </shadow> ' +
+    '        </value> ' +
+    '    </block> ' +
     '    <block type="pimobile_motor"> ' +
     '        <value name="value"> ' +
     '            <shadow type="math_number"> ' +
