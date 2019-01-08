@@ -8,9 +8,6 @@ PiMobile.series = "raspberrypi";
 PiMobile.nameEn = "PiMobile";
 PiMobile.type = "raspberrypi";
 PiMobile.img = CORE_DIR + '/product/' + PiMobile.id + '/img/' + PiMobile.id + '_board' + '.png';
-PiMobile.width = 96;
-PiMobile.height = 72;
-PiMobile.active = 'active';
 
 PiMobile.functions = [
     "iot",
@@ -20,10 +17,9 @@ PiMobile.functions = [
     "play",
 ]
 
-PiMobile.routingOffset = {
-    x: 2.3,
-    y: 2.2,
-}
+PiMobile.libs = [
+	'pimobile.py',
+];
 
 PiMobile.init = function() {
     PiMobile.name = MSG.catPiMobile;
