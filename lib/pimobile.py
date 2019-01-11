@@ -7,14 +7,17 @@ PERIOD = 4095
 PRESCALER = 10
 TIMEOUT = 0.02
 
-forward_pins = [PWM(6), PWM(4)]
-backward_pins = [PWM(7), PWM(5)]
-all_pins = forward_pins + backward_pins
+motor1 = PWM(4)
+motor2 = PWM(5)
+motor1_direction = Pin(23)
+motor2_direction = Pin(24)
 
-for pin in all_pins:
+all_motors = [motor1, motor2]
+all_motors_direction = [motor1_direction, motor2_direction]
+
+for pin in all_motors:
     pin.period(PERIOD)
     pin.prescaler(PRESCALER)
-
 
 def get_distance(trig=17, echo=18):
     trig = Pin(trig)
@@ -48,143 +51,80 @@ def is_black(chn, references=300):
     else:
         return False
 
-def set_motor_speed(motor, speed):
+def set_motor_speed(motor, speed, direction):
     motor -= 1
-    forward_speed = speed if speed > 0 else 0
-    backward_speed = -speed if speed < 0 else 0
-    forward_pins[motor].pulse_width(forward_speed)
-    backward_pins[motor].pulse_width(backward_speed)
+    if motor == 1:
+        direction = -direction
+    if direction >= 0:
+        all_motors_direction[motor].high()
+        all_motors[motor].pulse_width(speed)
+    else:
+        
+        all_motors_direction[motor].low()
+        all_motors[motor].pulse_width(speed)
 
-def test_line_1():
-    import os
+    # forward_speed = speed if speed > 0 else 0
+    # backward_speed = -speed if speed < 0 else 0
+    # forward_pins[motor].pulse_width(forward_speed)
+    # backward_pins[motor].pulse_width(backward_speed)
+
+# def test_line_1():
+#     import os
+#     while True:
+#         os.system('clear')
+#         print("Line follwer test:")
+#         print("Left: %s, Right: %s"%(get_line_value("A0"), get_line_value("A1")))
+#         print("")
+#         print("| Left  | Right |")
+#         print("| %s | %s |"%("#####" if is_black("A0") else "     ", "#####" if is_black("A1") else "     "))
+#         time.sleep(0.01)
+
+# def test_line_2():
+#     import os
+#     while True:
+#         os.system('clear')
+#         print("Line follwer test:")
+#         print("Left: %s, Right: %s"%(get_line_value("A0"), get_line_value("A1")))
+#         print("")
+#         print("| Left  | Right |")
+#         print("| %s | %s |"%("#####" if is_black("A0") else "     ", "#####" if is_black("A1") else "     "))
+#         time.sleep(0.01)
+
+# def test_line_3():
+#     a = [[0, 1], [0, 0], [1, 0], [1,1]]
+#     result = []
+#     for x in a:
+#         for y in a:
+#             for z in a:
+#                 result.append([x,y,z])
+#     print("status: %s"%len(result))
+#     for r in result:
+#         print(r)
+
+
+
+def test_all(value, dir):
+    set_motor_speed(1, 0, 1)
+    set_motor_speed(2, 0, 1)
     while True:
-        os.system('clear')
-        print("Line follwer test:")
-        print("Left: %s, Right: %s"%(get_line_value("A0"), get_line_value("A1")))
-        print("")
-        print("| Left  | Right |")
-        print("| %s | %s |"%("#####" if is_black("A0") else "     ", "#####" if is_black("A1") else "     "))
-        time.sleep(0.01)
-
-def test_line_2():
-    import os
-    while True:
-        os.system('clear')
-        print("Line follwer test:")
-        print("Left: %s, Right: %s"%(get_line_value("A0"), get_line_value("A1")))
-        print("")
-        print("| Left  | Right |")
-        print("| %s | %s |"%("#####" if is_black("A0") else "     ", "#####" if is_black("A1") else "     "))
-        time.sleep(0.01)
-
-def test_line_3():
-    a = [[0, 1], [0, 0], [1, 0], [1,1]]
-    result = []
-    for x in a:
-        for y in a:
-            for z in a:
-                result.append([x,y,z])
-    print("status: %s"%len(result))
-    for r in result:
-        print(r)
-
-
-def test_motor():
-    set_motor_speed(1, -4095)
-    set_motor_speed(2, 4095)
-
-    
-
-if __name__ == "__main__":
-    test_motor()
-
-# class Motor(object):
-#     PERIOD = 4095
-#     PRESCALER = 10
-
-#     def __init__(self):
-#         self.motor1_foreward = PWM(6)
-#         self.motor1_reverse = PWM(7)
-#         self.motor2_foreward = PWM(4)
-#         self.motor2_reverse = PWM(5)
-
-#         self.motor1_foreward.PERIOD(self.PERIOD)
-#         self.motor1_foreward.PRESCALER(self.PRESCALER)
-
-#         self.motor1_reverse.PERIOD(self.PERIOD)
-#         self.motor1_reverse.PRESCALER(self.PRESCALER)
-
-#         self.motor2_foreward.PERIOD(self.PERIOD)
-#         self.motor2_foreward.PRESCALER(self.PRESCALER)
-
-#         self.motor2_reverse.PERIOD(self.PERIOD)
-#         self.motor2_reverse.PRESCALER(self.PRESCALER)
-#         # for i range(0, 3):
-#         #     self.p_in.PERIOD(self.PERIOD)
-                
-#         #         self.p_out = PWM(self.PORT[device][chn][0])
-#         #         self.p_in = PWM(self.PORT[device][chn][1])
-#         #         self.p_in.PERIOD(self.PERIOD)
-#         #         self.p_in.PRESCALER(self.PRESCALER)
-#         #         self.p_out.PERIOD(self.PERIOD)
-#         #         self.p_out.PRESCALER(self.PRESCALER)
+        # value = input("input speed: ")
+        try:
+            value = int(value)
+            set_motor_speed(2, value, dir)
+            set_motor_speed(1, value, dir)
+        except Exception as e:
+            print(e)
+        # set_motor_speed(2, value)
 
  
-#     def foreward(self):
-#         self.motor1_foreward.pulse_width(2048)
-#         self.motor1_reverse.pulse_width(0)
-#         self.motor2_foreward.pulse_width(2048)
-#         self.motor2_reverse.pulse_width(0)
 
-    
-#     def reverse(self):
-#         self.motor1_reverse.pulse_width(2048)
-#         self.motor1_foreward.pulse_width(0)
-#         self.motor2_reverse.pulse_width(2048)
-#         self.motor2_foreward.pulse_width(0)
-
-#     def turn_left(self):
-#         self.motor1_foreward.pulse_width(1024)
-#         self.motor1_reverse.pulse_width(0)
-#         self.motor2_foreward.pulse_width(2048)
-#         self.motor2_reverse.pulse_width(0)
-
-#     def turn_right(self):
-#         self.motor1_foreward.pulse_width(2048)
-#         self.motor1_reverse.pulse_width(0)
-#         self.motor2_foreward.pulse_width(1024)
-#         self.motor2_reverse.pulse_width(0)
-
-#     def test1(self, value):
-
-#         self.motor1_foreward.pulse_width(value)
-#         self.motor1_reverse.pulse_width(0)
-
-# def test():
-#     motor = Motor()
-#         # print("forward")
-#     while True:
-#         print("forward")
-#         # motor.test1(2048)
-#         motor.test1(4095)
-#         time.sleep(1)
-        
-#         # motor.test1(4095)
-#         motor.test1(2048)
-#         time.sleep(1)
-#         # time.sleep(1)
-#         # print("reverse")
-#         # motor.reverse()
-#         # time.sleep(1)
-#         # print("turn_left")
-#         # motor.turn_left()
-#         # time.sleep(1)
-#         # print("turn_right")
-#         # motor.turn_right()
-#         # time.sleep(1)
-#         # print("reverse")
-#         # motor.reverse()
-#         # time.sleep(1)
-        
 # if __name__ == "__main__":
-#     test()
+#     while True:
+#         print(get_distance())
+#         print('')
+#         # value1 = get_line_value("A0")
+#         # value2 = get_line_value("A1")
+#         # print(value1)
+#         # print(value2)
+#         # print('')
+#         time.sleep(0.8)
