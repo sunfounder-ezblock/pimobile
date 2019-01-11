@@ -51,11 +51,15 @@ def is_black(chn, references=300):
     else:
         return False
 
-def set_motor_speed(motor, speed, direction):
+def set_motor_speed(motor, speed):
     motor -= 1
-    if motor == 1:
-        direction = -direction
-    if direction >= 0:
+    if speed > 0:
+        direction = 1
+    else:
+        direction = 0
+    speed = abs(speed)
+    speed = speed / 4095 * 100
+    if direction > 0:
         all_motors_direction[motor].high()
         all_motors[motor].pulse_width(speed)
     else:
