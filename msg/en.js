@@ -8,6 +8,19 @@ MSG.catPiMobile = "PiMobile";
 
 MSG.pimobile_description = "Raspberry Pi Mobile Car"
 
+
+Blockly.Msg.PIMOBILE_DIGITAL_PIN_TITLE = "D"
+Blockly.Msg.PIMOBILE_DIGITAL_PIN_TOOLTIP = "Digital pin number";
+
+Blockly.Msg.PIMOBILE_ANALOG_PIN_TITLE = "A"
+Blockly.Msg.PIMOBILE_ANALOG_PIN_TOOLTIP = "Analog pin number";
+
+Blockly.Msg.PIMOBILE_PWM_PIN_TITLE = "PWM"
+Blockly.Msg.PIMOBILE_PWM_PIN_TOOLTIP = "PWM pin number";
+
+Blockly.Msg.PIMOBILE_DEVICE_PIN_TOOLTIP = "Device pin number";
+
+
 Blockly.Msg.PIMOBILE_LINE_TOOLTIP = "Select line follower";
 
 Blockly.Msg.PIMOBILE_MOTOR_SELECT_TOOLTIP = "Select Motor ";

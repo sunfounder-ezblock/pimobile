@@ -1,14 +1,14 @@
 PiMobile.toolboxText =
-    '  <category name="%{BKY_CATPIMOBILE}" colour="#CF5889">' +
+    '  <category name="%{BKY_CATPIMOBILE}" colour="#3F34D1">' +
 
-    '    <block type="raspberrypi_digital_pin"></block>' +
-    '    <block type="raspberrypi_analog_pin"></block>' +
-    '    <block type="raspberrypi_pwm_pin"></block>' +
-    '    <block type="raspberrypi_device_pin"></block>' +
+    '    <block type="pimobile_digital_pin"></block>' +
+    '    <block type="pimobile_analog_pin"></block>' +
+    '    <block type="pimobile_pwm_pin"></block>' +
+    '    <block type="pimobile_device_pin"></block>' +
 
     '    <block type="raspberrypi_pin_set_value">' +
     '      <value name="pin">' +
-    '        <shadow type="raspberrypi_digital_pin">' +
+    '        <shadow type="pimobile_digital_pin">' +
     '        </shadow>' +
     '      </value>' +
     '      <value name="value">' +
@@ -20,7 +20,7 @@ PiMobile.toolboxText =
 
     '    <block type="raspberrypi_pin_set_value">' +
     '      <value name="pin">' +
-    '        <shadow type="raspberrypi_pwm_pin">' +
+    '        <shadow type="pimobile_pwm_pin">' +
     '        </shadow>' +
     '      </value>' +
     '      <value name="value">' +
@@ -32,13 +32,13 @@ PiMobile.toolboxText =
 
     '    <block type="raspberrypi_pin_get_value">' +
     '      <value name="pin">' +
-    '        <shadow type="raspberrypi_digital_pin">' +
+    '        <shadow type="pimobile_digital_pin">' +
     '        </shadow>' +
     '      </value>' +
     '    </block>' +
     '    <block type="raspberrypi_pin_get_value">' +
     '      <value name="pin">' +
-    '        <shadow type="raspberrypi_analog_pin">' +
+    '        <shadow type="pimobile_analog_pin">' +
     '        </shadow>' +
     '      </value>' +
     '    </block>' +

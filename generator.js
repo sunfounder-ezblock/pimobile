@@ -5,6 +5,38 @@ goog.provide('Blockly.Python.pimobile');
 goog.require('Blockly.Python');
 
 
+Blockly.Python['pimobile_digital_pin'] = function(block) {  // digital pin number
+    var pin = block.getFieldValue('pin');
+
+    var code = '';
+    code += pin;
+    return [code, Blockly.Python.ORDER_ATOMIC];
+};
+Blockly.Python['pimobile_analog_pin'] = function(block) {  // digital pin number
+    var pin = block.getFieldValue('pin');
+
+    var code = '';
+    code += pin;
+    return [code, Blockly.Python.ORDER_ATOMIC];
+};
+
+Blockly.Python['pimobile_device_pin'] = function(
+        block) {  // digital pin number
+    var pin = block.getFieldValue('pin');
+
+    var code = '';
+    code += pin;
+    return [code, Blockly.Python.ORDER_ATOMIC];
+};
+
+Blockly.Python['pimobile_pwm_pin'] = function(block) {  // digital pin number
+    var pin = block.getFieldValue('pin');
+
+    var code = '';
+    code += pin;
+    return [code, Blockly.Python.ORDER_ATOMIC];
+};
+
 
 Blockly.Python['pimobile_line'] = function(block) {
     var chn = block.getFieldValue('line_follower');

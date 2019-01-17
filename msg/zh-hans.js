@@ -9,6 +9,18 @@ MSG.catPiMobile = "PiMobile";
 MSG.pimobile_description = "树莓派新一代小车"
 
 
+Blockly.Msg.PIMOBILE_DIGITAL_PIN_TITLE = "D"
+Blockly.Msg.PIMOBILE_DIGITAL_PIN_TOOLTIP = "数字引脚";
+
+Blockly.Msg.PIMOBILE_ANALOG_PIN_TITLE = "A"
+Blockly.Msg.PIMOBILE_ANALOG_PIN_TOOLTIP = "模拟引脚";
+
+Blockly.Msg.PIMOBILE_PWM_PIN_TITLE = "PWM"
+Blockly.Msg.PIMOBILE_PWM_PIN_TOOLTIP = "PWM 引脚";
+
+Blockly.Msg.PIMOBILE_DEVICE_PIN_TOOLTIP = "内置硬件引脚";
+
+
 Blockly.Msg.PIMOBILE_LINE_TOOLTIP = "选择巡线";
 
 Blockly.Msg.PIMOBILE_MOTOR_SELECT_TOOLTIP = "选择电机";
